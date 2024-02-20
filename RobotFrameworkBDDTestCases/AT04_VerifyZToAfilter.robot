@@ -1,28 +1,32 @@
 *** Settings ***
 Library           SeleniumLibrary
+Resource          ../resources/resource.robot
 Library           Collections
 Library           OperatingSystem
 Library           BuiltIn.Sleep
 
 *** Variables ***
-${LOGIN_PAGE_URL}        https://www.saucedemo.com/
-${USERNAME}              standard_user
-${PASSWORD}              secret_sauce
-${FNAME}                 Name (Z to A)
+#${LOGIN_PAGE_URL}        https://www.saucedemo.com/
+#${USERNAME}              standard_user
+#${PASSWORD}              secret_sauce
+#${FNAME}                 Name (Z to A)
+
+
 *** Test Cases ***
-AT06_VerifyHighToLowFilter
-    Given user Logins To Website
+AT04_VerifyZToAfilter.robot
+    Given user logs into SwagLabs
     Then user clicks on sort filter
     And Assert that all the items are orgainsed in Z To A order
     Then Close Browser
 
+
 *** Keywords ***
-Given user Logins To Website
-    Open Browser    ${LOGIN_PAGE_URL}    chrome
-    Maximize Browser Window
-    Input Text      id:user-name         ${USERNAME}
-    Input Text      id:password          ${PASSWORD}
-    Click Button    id:login-button
+#Given user Logins To Website
+#    Open Browser    ${LOGIN_PAGE_URL}    chrome
+#    Maximize Browser Window
+#    Input Text      id:user-name         ${USERNAME}
+#    Input Text      id:password          ${PASSWORD}
+#    Click Button    id:login-button
 
 Then user clicks on sort filter
     ${FilterList}    Get WebElements    xpath=//*[@class='product_sort_container']//option
@@ -53,5 +57,5 @@ And Assert that all the items are orgainsed in Z To A order
         ${act_item_name}    Collections.Get From List    ${act_item_names}    ${j}
         Log    ItsValueIs: ${act_item_name}
         Should Be Equal As Strings    ${exp_item_name}    ${act_item_name}
-        Sleep  5s
+#        Sleep  5s
     END

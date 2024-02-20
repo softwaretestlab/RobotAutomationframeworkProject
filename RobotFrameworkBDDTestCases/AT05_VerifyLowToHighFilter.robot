@@ -1,28 +1,32 @@
 *** Settings ***
 Library           SeleniumLibrary
+Resource          ../resources/resource.robot
 Library           Collections
 Library           OperatingSystem
 Library           BuiltIn.Sleep
 
+
 *** Variables ***
-${LOGIN_PAGE_URL}        https://www.saucedemo.com/
-${USERNAME}              standard_user
-${PASSWORD}              secret_sauce
-${FNAME}                 Price (low to high)
+#${LOGIN_PAGE_URL}        https://www.saucedemo.com/
+#${USERNAME}              standard_user
+#${PASSWORD}              secret_sauce
+#${FNAME}                 Price (low to high)
+
+
 *** Test Cases ***
-AT02_VerifyLowToHighFilter
-    Given user Logins To Website
+AT05_VerifyLowToHighFilter
+    Given user logs into SwagLabs
     Then user clicks on sort filter
     And Assert that all the items are orgainsed in price vice low to high order
     Then Close Browser
 
 *** Keywords ***
-Given user Logins To Website
-    Open Browser    ${LOGIN_PAGE_URL}    chrome
-    Maximize Browser Window
-    Input Text      id:user-name         ${USERNAME}
-    Input Text      id:password          ${PASSWORD}
-    Click Button    id:login-button
+#Given user Logins To Website
+#    Open Browser    ${LOGIN_PAGE_URL}    chrome
+#    Maximize Browser Window
+#    Input Text      id:user-name         ${USERNAME}
+#    Input Text      id:password          ${PASSWORD}
+#    Click Button    id:login-button
 
 Then user clicks on sort filter
     ${FilterList}    Get WebElements    xpath=//*[@class='product_sort_container']//option

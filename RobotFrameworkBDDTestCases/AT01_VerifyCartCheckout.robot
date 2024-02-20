@@ -3,11 +3,13 @@ Library           SeleniumLibrary
 Library           OperatingSystem
 Library           Collections
 Library           String
+Library           SeleniumLibrary
+Resource          ../resources/resource.robot
 
 *** Variables ***
-${LOGIN_PAGE_URL}        https://www.saucedemo.com/
-${USERNAME}              standard_user
-${PASSWORD}              secret_sauce
+#${LOGIN_PAGE_URL}        https://www.saucedemo.com/
+#${USERNAME}              standard_user
+#${PASSWORD}              secret_sauce
 
 *** Test Cases ***
 AT01_VerifyCartCheckout.robot
@@ -18,11 +20,11 @@ AT01_VerifyCartCheckout.robot
     Then Close Browser
 
 *** Keywords ***
-Given user logs into SwagLabs
-    Open Browser    ${LOGIN_PAGE_URL}    chrome
-    Input Text      id:user-name         ${USERNAME}
-    Input Password  id:password          ${PASSWORD}
-    Click Button    id:login-button
+#Given user logs into SwagLabs
+#    Open Browser    ${LOGIN_PAGE_URL}    chrome
+#    Input Text      id:user-name         ${USERNAME}
+#    Input Password  id:password          ${PASSWORD}
+#    Click Button    id:login-button
 
 Then Add's Product To Cart
     ${product_names}=    Get WebElements    xpath://*[@class='inventory_item_name ']

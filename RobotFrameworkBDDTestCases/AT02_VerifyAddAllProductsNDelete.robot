@@ -2,15 +2,19 @@
 Library           SeleniumLibrary
 Library           Collections
 Library           OperatingSystem
+Library           SeleniumLibrary
+Resource          ../resources/resource.robot
+
 
 *** Variables ***
-${LOGIN_PAGE_URL}        https://www.saucedemo.com/
-${USERNAME}              standard_user
-${PASSWORD}              secret_sauce
+#${LOGIN_PAGE_URL}        https://www.saucedemo.com/
+#${USERNAME}              standard_user
+#${PASSWORD}              secret_sauce
+
 
 *** Test Cases ***
 AT02_VerifyAddAllProductsNDelete
-    Given user Logins To Website
+    Given user logs into SwagLabs
     Then Add's All Items To Cart
     And Navigate To Cart Page
     Then Remove All Items And Verify Removal
@@ -18,11 +22,11 @@ AT02_VerifyAddAllProductsNDelete
 
 
 *** Keywords ***
-Given user Logins To Website
-    Open Browser    ${LOGIN_PAGE_URL}    chrome
-    Input Text      id:user-name         ${USERNAME}
-    Input Text      id:password          ${PASSWORD}
-    Click Button    id:login-button
+#Given user Logins To Website
+#    Open Browser    ${LOGIN_PAGE_URL}    chrome
+#    Input Text      id:user-name         ${USERNAME}
+#    Input Text      id:password          ${PASSWORD}
+#    Click Button    id:login-button
 
 Then Add's All Items To Cart
     ${add_to_cart_buttons}    Get WebElements    xpath=//button[contains(text(),'Add to cart')]
