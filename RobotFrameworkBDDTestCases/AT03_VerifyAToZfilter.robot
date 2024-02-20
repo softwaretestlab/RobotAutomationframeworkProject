@@ -3,7 +3,7 @@ Library           SeleniumLibrary
 Resource          ../resources/resource.robot
 Library           Collections
 Library           OperatingSystem
-Library           BuiltIn.Sleep
+#Library           BuiltIn.Sleep
 
 *** Variables ***
 #${LOGIN_PAGE_URL}        https://www.saucedemo.com/
@@ -14,6 +14,7 @@ Library           BuiltIn.Sleep
 
 *** Test Cases ***
 AT03_VerifyAToZfilter
+    [Tags]  FunctionalTest
     Given user logs into SwagLabs
     Then user clicks on sort filter
     And Assert that all the items are orgainsed in A To Z order

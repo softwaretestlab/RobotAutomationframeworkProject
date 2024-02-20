@@ -13,6 +13,7 @@ Resource          ../resources/resource.robot
 
 *** Test Cases ***
 AT01_VerifyCartCheckout.robot
+    [Tags]  FunctionalTest
     Given user logs into SwagLabs
     Then Add's Product To Cart
     Then Click On Mini Cart

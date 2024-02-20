@@ -3,7 +3,7 @@ Library           SeleniumLibrary
 Resource          ../resources/resource.robot
 Library           Collections
 Library           OperatingSystem
-Library           BuiltIn.Sleep
+#Library           BuiltIn.Sleep
 
 
 *** Variables ***
@@ -15,6 +15,7 @@ Library           BuiltIn.Sleep
 
 *** Test Cases ***
 AT06_VerifyHighToLowFilter
+    [Tags]  FunctionalTest
     Given user logs into SwagLabs
     Then user clicks on sort filter
     And Assert that all the items are orgainsed in price vice high to low order

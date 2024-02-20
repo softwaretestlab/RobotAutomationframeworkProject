@@ -14,6 +14,7 @@ Resource          ../resources/resource.robot
 
 *** Test Cases ***
 AT02_VerifyAddAllProductsNDelete
+    [Tags]  FunctionalTest
     Given user logs into SwagLabs
     Then Add's All Items To Cart
     And Navigate To Cart Page
