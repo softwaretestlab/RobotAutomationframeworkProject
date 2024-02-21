@@ -1,6 +1,6 @@
 *** Settings ***
 Library           SeleniumLibrary
-Library           ../libraries/chrome_options.py
+#Library           ../libraries/chrome_options.py
 Library           SeleniumLibrary
 
 

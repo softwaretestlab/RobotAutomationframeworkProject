@@ -61,5 +61,3 @@ And Assert that all the items are orgainsed in price vice high to low order
         Should Be Equal As Strings    ${exp_item_name}    ${act_item_name}
 #        Sleep  5s
     END
-
-

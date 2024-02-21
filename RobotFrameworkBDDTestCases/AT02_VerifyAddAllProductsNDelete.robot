@@ -47,4 +47,3 @@ Then Remove All Items And Verify Removal
     # Verify that the cart is empty
     ${cart_badge}    Get WebElements    xpath=//*[@class='shopping_cart_badge']
     Should Be Empty    ${cart_badge}
-    Close Browser

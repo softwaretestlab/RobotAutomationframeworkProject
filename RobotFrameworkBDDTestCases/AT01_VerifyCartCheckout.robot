@@ -39,7 +39,7 @@ Then Add's Product To Cart
         ${product_name}=    Get Text    ${product_names}[${i}]
         ${product_amount}=  Get Text    ${product_amounts}[${i}]
        ${product_amount} =    Replace String    ${product_amount}    $    ${EMPTY}  # Remove the $
-           ${product_amount_numeric} =    Convert To Number    ${product_amount}
+       ${product_amount_numeric} =    Convert To Number    ${product_amount}
            Log To Console    Product Amount: ${product_amount_numeric}
 
         Set Suite Variable    ${product_name}
@@ -56,9 +56,8 @@ Then Click On Mini Cart
 And Compare Product Page And Cart Page
     ${added_product_name}=    Get Text    xpath://*[contains(text(),'Sauce Labs Backpack')]
     ${added_product_amount}=  Get Text    xpath://*[@class='inventory_item_price']
- ${added_product_amount1} =    Replace String    ${added_product_amount}    $    ${EMPTY}  # Remove the $
-           ${added_product_amount2} =    Convert To Number    ${added_product_amount1}
-           Log To Console    Product Amount: ${added_product_amount2}
+    ${added_product_amount1} =    Replace String    ${added_product_amount}    $    ${EMPTY}  # Remove the $
+    ${added_product_amount2} =    Convert To Number    ${added_product_amount1}
+    Log To Console    Product Amount: ${added_product_amount2}
     Should Be Equal As Strings    ${added_product_name}    ${product_name}
     Should Be Equal As Strings    ${added_product_amount2}  ${product_amount_numeric}
-
